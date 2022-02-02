@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        
+        <% flash.get('mensaje').forEach(function (msg) { %>
+            <div class="alert alert-danger" role="alert">
+                <%=msg%>
+            </div>
+        <% }) %>
+        
+        <h1> Admin - Principal </h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Desactivar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% fotografias.forEach( foto => { %>
+                <tr>
+                    <td scope="row"><%=foto.id%></td>
+                    <td scope="row"><%=foto.titulo%></td>
+                    
+                    <td scope="row"><img src="/images/<%=foto.contenido%>" alt="" class="w-100"> </td>
+                     
+
+                    <td><%=foto.activa ? "Si" : "No"%></td>
+                            <td>
+                                <% if (foto.activa) { %>
+                                <a href="/admin/desactivar/<%=foto.id%>" class="btn btn-info">Desactivar</a>
+                                <% } else { %>
+                                <a href="/admin/activar/<%=foto.id%>" class="btn btn-primary">Activar</a>
+                                <% } %>
+                                </td>
+                        </td>
+                    
+
+                    
+                    
+                </tr>
+                <% }) %>
+
+
+            </tbody>
+        </table>
+        <a href="/admin/agregar-foto" class="btn btn-primary">Agregar Foto</a>
+
+    </div>
+
+
+
+
+</div>

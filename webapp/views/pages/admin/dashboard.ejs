@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        
+        <% flash.get('mensaje').forEach(function (msg) { %>
+            <div class="alert alert-danger" role="alert">
+                <%=msg%>
+            </div>
+        <% }) %>
+        
+        <h1>Estadísticas</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Clientes</th>
+                    <th scope="col">Fotos</th>
+                    <th scope="col">Administradores</th>
+                    <th scope="col">Ordenes</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+               
+                    <tr>
+                        <td scope="row"><%=listado[0].length%></td>
+                        <td scope="row"><%=listado[1].length%></td>
+                        <td scope="row"><%=listado[2].length%></td>
+                        <td scope="row"><%=listado[3].length%></td>
+                        
+                    </tr>
+                   
+    
+                
+            </tbody>
+        </table>
+
+
+
+        
+    </div>
+</div>

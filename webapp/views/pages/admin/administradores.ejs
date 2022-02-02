@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        
+        <% flash.get('mensaje').forEach(function (msg) { %>
+            <div class="alert alert-danger" role="alert">
+                <%=msg%>
+            </div>
+        <% }) %>
+        
+        <h1> Administradores</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <% listas.forEach( lista => { %>
+                    <tr>
+                        <td scope="row"><%=lista.id%></td>
+                        <td scope="row"><%=lista.nombre%></td>
+                        <td scope="row"><%=lista.email%></td>
+
+                        <td><%=lista.activo ? "Si" : "No"%></td>
+                            <td>
+                                <% if (lista.activo) { %>
+                                <a href="/admin/desactivar-administrador/<%=lista.id%>" class="btn btn-info">Desactivar Admin.</a>
+                                <% } else { %>
+                                <a href="/admin/activar-administrador/<%=lista.id%>" class="btn btn-primary">Activar Admin.</a>
+                                <% } %>
+                                </td>
+                        </td>
+
+                    </tr>
+                    <% }) %>
+    
+                
+            </tbody>
+        </table>
+
+
+
+        
+    </div>
+</div>
